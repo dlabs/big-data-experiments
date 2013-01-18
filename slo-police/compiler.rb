@@ -8,21 +8,45 @@ module Compiler
     attr_accessor :raw_line,
       :stevilka_kaznivega_dejanja,
       :datum_storitve_kaznivega_dejanja,
-      :ura_storitve_kaznivega_dejanja
+      :ura_storitve_kaznivega_dejanja,
+      :dan_v_tednu,
+      :pu_storitve_kd,
+      :povratnik,
+      :vrsta_kriminalitete_gs,
+      :ue_kd,
+      :ovadba_a_por,
+      :leto_zakljucnega_dokumenta
 
     def initialize raw_line
       @raw_line = raw_line
     end
 
     def parse
-      tokens = @raw_line.split '$'
-      @stevilka_kaznivega_dejanja = tokens[0]
-      @datum_storitve_kaznivega_dejanja = tokens[1]
+      @raw_line.gsub! /¬/, "Č" # WTF?!
 
-      # Convert to number 4
-      @ura_storitve_kaznivega_dejanja = tokens[2]
+      tokens = @raw_line.split '$'
+      size = tokens.size
+
+      @stevilka_kaznivega_dejanja = tokens[0].strip
+      @datum_storitve_kaznivega_dejanja = tokens[1].strip
+      @ura_storitve_kaznivega_dejanja = tokens[2].strip
+      @dan_v_tednu = tokens[3].strip
+      @pu_storitve_kd = tokens[4].strip # glej postaje.csv
+
+      @vrsta_kriminalitete_gs = tokens[7].strip
+
+      @ue_kd = tokens[size-4].strip
+
+      @leto_zakljucnega_dokumenta = tokens[size-2].strip
+      @ovadba_a_por = tokens.last.strip
+
+      @povratnik = tokens[10].strip
 
       self
+    end
+
+    def parse_to_objs
+      #TODO
     end
   end
 

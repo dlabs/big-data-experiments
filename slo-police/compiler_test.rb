@@ -23,6 +23,8 @@ describe Compiler::Line do
     its(:stevilka_kaznivega_dejanja){ should_not eq "" }
     its(:datum_storitve_kaznivega_dejanja){ should_not eq "" }
     its(:ura_storitve_kaznivega_dejanja){ should_not eq ""}
+    its(:dan_v_tednu) { should_not eq ""}
+    its(:pu_storitve_kd) { should_not eq ""}
   end
 
 end

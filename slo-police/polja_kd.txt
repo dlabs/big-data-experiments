@@ -1,0 +1,11 @@
+1 Številka kaznivega dejanja
+2 Leto storitve kaznivega dejanja
+3 Mesec storitve kaznivega dejanja
+4 Dan v tednu (1-7)
+5 Interval ure v dnevu (intervali_ure_kaznivih_dejanj.csv)
+6 PU storitve kaznivega dejanja (postaje.csv)
+7 Povratnik (0-1)
+8 Koda kriminalitete (gospodarska/splošna) (0-1)
+9 UE kaznivega dejanja
+10 Letno zaključnega dokumenta
+11 Ovadba ali poročilo
